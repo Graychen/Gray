@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dip"
+    android:layout_height="150dip"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+    <ImageView 
+        android:id="@+id/iv_main_icon"
+        android:layout_width="120dip"
+        android:layout_height="120dip"
+        android:scaleType="fitXY"
+        android:src="@drawable/app"
+        android:contentDescription="@string/hello_world"/>
+    
+    <TextView 
+        android:id="@+id/tv_main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:text="@string/main"
+        android:background="@drawable/text_background"/><!-- 引用刚刚定义的图片，像一般图片一样使用就行的啦，很方便的  -->
+
+</LinearLayout>
