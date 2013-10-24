@@ -12,10 +12,10 @@ public class CallPhoneReceiver extends BroadcastReceiver{
 	public void onReceive(Context context, Intent intent) {
 		// TODO Auto-generated method stub
 		String outPhoneNumber = this.getResultData();
-		if(outPhoneNumber.equals("1214"))
+		if(outPhoneNumber.equals("1314"))
 		{
 			Intent i = new Intent(context, LostProtectedActivity.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			context.startActivity(i);
 			setResultData(null);
 		}
