@@ -23,8 +23,7 @@ public class MainUIAdapter extends BaseAdapter
                         R.drawable.widget08, R.drawable.widget09};
         
         //声明成静态，起到一定的优化作用，关于adapter还有别的优化方法的，有机会我们再说
-        private static ImageView imageView;
-        private static TextView textView;
+        
         
         private Context context;
         private LayoutInflater inflater;
@@ -58,22 +57,47 @@ public class MainUIAdapter extends BaseAdapter
         @Override
         public View getView(int position, View convertView, ViewGroup parent)
         {
-                View view = inflater.inflate(R.layout.main_item, null);
-                imageView = (ImageView) view.findViewById(R.id.iv_main_icon);
-                textView = (TextView) view.findViewById(R.id.tv_main_name);
-                imageView.setImageResource(ICONS[position]);
-                textView.setText(NAMES[position]);
+        		MainViews views;
+        		View view;
+        		if(convertView == null)
+        		{
+        			views = new MainViews();
+        			view = inflater.inflate(R.layout.main_item, null);
+        			views.imageView = (ImageView) view.findViewById(R.id.iv_main_icon);
+                    views.textView = (TextView) view.findViewById(R.id.tv_main_name);
+                    views.imageView.setImageResource(ICONS[position]);
+                    views.textView.setText(NAMES[position]);
+        		
+                    view.setTag(views);
+        		}
+        		else
+        		{
+        			view = convertView;
+        			views = (MainViews) view.getTag();
+        			views.imageView =(ImageView) view.findViewById(R.id.iv_main_icon);
+        			views.textView = (TextView) view.findViewById(R.id.tv_main_name);
+        			views.imageView.setImageResource(ICONS[position]);
+        			views.textView.setText(NAMES[position]);
+        		}
+               
+               
                         
                 if(position == 0)
                 {
                         String name = sp.getString("lostName", "");
                         if(!name.equals(""))
                         {
-                                textView.setText(name);
+                                views.textView.setText(name);
                         }
                 }
                 
                 return view;
+        }
+        //====================================
+        private class MainViews
+        {
+        	ImageView imageView;
+        	TextView textView;
         }
         
 }
