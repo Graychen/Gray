@@ -21,5 +21,30 @@
 		<item name="android:windowBackground">@drawable/title_background</item>
         <item name="android:windowNoTitle">true</item>
     </style>
-
+    
+     <style name="SetupGuideTitle" >
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item> 
+       <item name="android:textSize">20sp</item>
+       <item name="android:textColor">#FFFFFF</item>
+    </style>
+	
+      <style name="SetGuideUnderline">
+      
+          <item name="android:color">#000000</item>
+          <item name="android:layout_width">fill_parent</item>
+          <item name="android:layout_height">2sp</item>
+    </style>
+      <style  name="SetupGuideContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+      </style>
+    
+    <style name="SetupGuideItem" >
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

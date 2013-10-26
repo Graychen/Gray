@@ -3,6 +3,7 @@ package com.xiaobin.security.ui;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -44,10 +45,11 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 		password = (EditText) findViewById(R.id.et_protected_first_password);
 		confirmPassword = (EditText) findViewById(R.id.et_protected_confirm_password);
 		Button yes = (Button) view.findViewById(R.id.bt_protected_first_yes);
-		Button no =(Button) view.findViewById(R.id.bt_protected_first_no);
+		Button cancel =(Button) view.findViewById(R.id.bt_protected_first_no);
 		yes.setOnClickListener(this);
-		no.setOnClickListener(this);
+		cancel.setOnClickListener(this);
 		dialog.setContentView(view);
+		dialog.setCancelable(false);
 		dialog.show();
 	}
 
@@ -61,6 +63,7 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 		yes.setOnClickListener(this);
 		cancel.setOnClickListener(this);
 		dialog.setContentView(view);
+		dialog.setCancelable(false);
 		dialog.show();
 	}
 
@@ -73,7 +76,11 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 		}
 		return true;
 	}
-
+	
+	private boolean isSetupGuide()
+	{
+		return sp.getBoolean("setupGuide", false);
+	}
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -92,6 +99,14 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 					Editor editor = sp.edit();
 					editor.putString("password", MD5Encoder.encode(fp));
 					editor.commit();
+					dialog.dismiss();
+					
+					if(!isSetupGuide())
+					{
+						finish();
+						Intent intent = new Intent(this, SetupGuide1Activity.class);
+						startActivity(intent);
+					}
 				}
 				else
 				{
@@ -118,6 +133,12 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 				String str = sp.getString("password", "");
 				if(MD5Encoder.encode(pwd).equals(str))
 				{
+					if(!isSetupGuide())
+					{
+						finish();
+						Intent intent = new Intent(this, SetupGuide1Activity.class);
+						startActivity(intent);
+					}
 					dialog.dismiss();
 				}
 				else

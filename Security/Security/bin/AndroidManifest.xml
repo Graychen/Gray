@@ -12,6 +12,19 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,6 +50,26 @@
             android:label="@string/protecte"
             android:name="com.xiaobin.security.ui.LostProtectedActivity"
             />
+        <activity 
+            android:label="@string/setupGuide"
+            android:name="com.xiaobin.security.ui.SetupGuide1Activity"
+            />
+         <activity 
+            android:label="@string/setupGuide"
+            android:name="com.xiaobin.security.ui.SetupGuide2Activity"
+            />
+          <activity 
+            android:label="@string/setupGuide"
+            android:name="com.xiaobin.security.ui.SetupGuide3Activity"
+            />
+           <activity 
+            android:label="@string/setupGuide"
+            android:name="com.xiaobin.security.ui.SetupGuide4Activity"
+            />
+           <activity 
+            android:label="@string/numberSecurity"
+            android:name="com.xiaobin.security.ui.NumberSecurityActivity"></activity>
+           
         <receiver android:name="com.xiaobin.security.receiver.CallPhoneReceiver">
             <intent-filter android:priority="1000">
 				<action android:name="android.intent.action.NEW_OUTGOING_CALL"/>                
