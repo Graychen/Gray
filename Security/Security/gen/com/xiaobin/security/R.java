@@ -11,6 +11,8 @@ public final class R {
     public static final class anim {
         public static final int alpha_in=0x7f040000;
         public static final int alpha_out=0x7f040001;
+		public static int translate_in;
+		public static int translate_out;
     }
     public static final class attr {
     }
@@ -73,6 +75,8 @@ public final class R {
         public static final int ll_splash_main=0x7f0a000f;
         public static final int tv_main_name=0x7f0a0009;
         public static final int tv_splash_version=0x7f0a0010;
+		public static final int bt_guide_select=0x7f0a0009;
+		public static final int et_guide_phoneNumber=0x7f0a0009;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

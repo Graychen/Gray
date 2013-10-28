@@ -11,6 +11,8 @@ public final class R {
     public static final class anim {
         public static final int alpha_in=0x7f040000;
         public static final int alpha_out=0x7f040001;
+        public static final int translate_in=0x7f040002;
+        public static final int translate_out=0x7f040003;
     }
     public static final class attr {
     }
@@ -55,39 +57,44 @@ public final class R {
         public static final int xmlitem_background_selector=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0014;
-        public static final int bt_guide_bind=0x7f0a000a;
-        public static final int bt_guide_finish=0x7f0a0011;
-        public static final int bt_guide_next=0x7f0a000d;
-        public static final int bt_guide_pervious=0x7f0a000c;
-        public static final int bt_guide_select=0x7f0a000f;
-        public static final int bt_protected_first_no=0x7f0a0004;
-        public static final int bt_protected_first_yes=0x7f0a0003;
-        public static final int bt_protected_login_no=0x7f0a0007;
-        public static final int bt_protected_login_yes=0x7f0a0006;
-        public static final int cb_guide_check=0x7f0a000b;
-        public static final int cb_guide_protected=0x7f0a0010;
-        public static final int et_guide_phoneNumber=0x7f0a000e;
-        public static final int et_protected_confirm_password=0x7f0a0002;
-        public static final int et_protected_first_password=0x7f0a0001;
-        public static final int et_protected_password=0x7f0a0005;
+        public static final int action_settings=0x7f0a0017;
+        public static final int bt_guide_bind=0x7f0a000d;
+        public static final int bt_guide_finish=0x7f0a0014;
+        public static final int bt_guide_next=0x7f0a0010;
+        public static final int bt_guide_pervious=0x7f0a000f;
+        public static final int bt_guide_select=0x7f0a0012;
+        public static final int bt_protected_first_no=0x7f0a0006;
+        public static final int bt_protected_first_yes=0x7f0a0005;
+        public static final int bt_protected_login_no=0x7f0a0009;
+        public static final int bt_protected_login_yes=0x7f0a0008;
+        public static final int cb_guide_check=0x7f0a000e;
+        public static final int cb_guide_protected=0x7f0a0013;
+        public static final int et_guide_phoneNumber=0x7f0a0011;
+        public static final int et_protected_confirm_password=0x7f0a0004;
+        public static final int et_protected_first_password=0x7f0a0003;
+        public static final int et_protected_password=0x7f0a0007;
         public static final int gv_main=0x7f0a0000;
-        public static final int iv_main_icon=0x7f0a0008;
-        public static final int ll_splash_main=0x7f0a0012;
-        public static final int tv_main_name=0x7f0a0009;
-        public static final int tv_splash_version=0x7f0a0013;
+        public static final int iv_main_icon=0x7f0a000a;
+        public static final int ll_splash_main=0x7f0a0015;
+        public static final int lv_select_contact=0x7f0a000c;
+        public static final int tv_contact_name=0x7f0a0001;
+        public static final int tv_contact_number=0x7f0a0002;
+        public static final int tv_main_name=0x7f0a000b;
+        public static final int tv_splash_version=0x7f0a0016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int adapter=0x7f030001;
-        public static final int first_dialog=0x7f030002;
-        public static final int login_dialog=0x7f030003;
-        public static final int main_item=0x7f030004;
-        public static final int setup_guide2=0x7f030005;
-        public static final int setup_guide3=0x7f030006;
-        public static final int setup_guide4=0x7f030007;
-        public static final int splash=0x7f030008;
-        public static final int steup_guide1=0x7f030009;
+        public static final int contact_item=0x7f030002;
+        public static final int first_dialog=0x7f030003;
+        public static final int login_dialog=0x7f030004;
+        public static final int main_item=0x7f030005;
+        public static final int select_contact=0x7f030006;
+        public static final int setup_guide2=0x7f030007;
+        public static final int setup_guide3=0x7f030008;
+        public static final int setup_guide4=0x7f030009;
+        public static final int splash=0x7f03000a;
+        public static final int steup_guide1=0x7f03000b;
     }
     public static final class menu {
         public static final int main=0x7f090000;
