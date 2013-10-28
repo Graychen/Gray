@@ -39,18 +39,18 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 	}
 
 	private void showFirstDialog() {
-		// TODO Auto-generated method stub
-		dialog = new Dialog(this, R.style.MyDialog);
-		View view= View.inflate(this, R.layout.first_dialog, null);
-		password = (EditText) findViewById(R.id.et_protected_first_password);
-		confirmPassword = (EditText) findViewById(R.id.et_protected_confirm_password);
-		Button yes = (Button) view.findViewById(R.id.bt_protected_first_yes);
-		Button cancel =(Button) view.findViewById(R.id.bt_protected_first_no);
-		yes.setOnClickListener(this);
-		cancel.setOnClickListener(this);
-		dialog.setContentView(view);
-		dialog.setCancelable(false);
-		dialog.show();
+	     dialog = new Dialog(this, R.style.MyDialog);
+         //dialog.setContentView(R.layout.first_dialog);
+         View view = View.inflate(this, R.layout.first_dialog, null);//这种填充布局的方式比较方便，峭用拿到一个LayoutInflate对象
+         password = (EditText) view.findViewById(R.id.et_protected_first_password);
+         confirmPassword = (EditText) view.findViewById(R.id.et_protected_confirm_password);
+         Button yes = (Button) view.findViewById(R.id.bt_protected_first_yes);
+         Button cancel = (Button) view.findViewById(R.id.bt_protected_first_no);
+         yes.setOnClickListener(this);
+         cancel.setOnClickListener(this);
+         dialog.setContentView(view);
+         dialog.setCancelable(false);
+         dialog.show();
 	}
 
 	private void showLoginDialog() {

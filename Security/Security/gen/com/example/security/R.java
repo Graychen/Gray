@@ -55,24 +55,27 @@ public final class R {
         public static final int xmlitem_background_selector=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0011;
+        public static final int action_settings=0x7f0a0014;
         public static final int bt_guide_bind=0x7f0a000a;
+        public static final int bt_guide_finish=0x7f0a0011;
         public static final int bt_guide_next=0x7f0a000d;
         public static final int bt_guide_pervious=0x7f0a000c;
+        public static final int bt_guide_select=0x7f0a000f;
         public static final int bt_protected_first_no=0x7f0a0004;
         public static final int bt_protected_first_yes=0x7f0a0003;
         public static final int bt_protected_login_no=0x7f0a0007;
         public static final int bt_protected_login_yes=0x7f0a0006;
         public static final int cb_guide_check=0x7f0a000b;
-        public static final int cb_guide_protected=0x7f0a000e;
+        public static final int cb_guide_protected=0x7f0a0010;
+        public static final int et_guide_phoneNumber=0x7f0a000e;
         public static final int et_protected_confirm_password=0x7f0a0002;
         public static final int et_protected_first_password=0x7f0a0001;
         public static final int et_protected_password=0x7f0a0005;
         public static final int gv_main=0x7f0a0000;
         public static final int iv_main_icon=0x7f0a0008;
-        public static final int ll_splash_main=0x7f0a000f;
+        public static final int ll_splash_main=0x7f0a0012;
         public static final int tv_main_name=0x7f0a0009;
-        public static final int tv_splash_version=0x7f0a0010;
+        public static final int tv_splash_version=0x7f0a0013;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -93,7 +96,7 @@ public final class R {
         public static final int action_settings=0x7f060002;
         public static final int againPassword=0x7f06000b;
         public static final int app_name=0x7f060001;
-        public static final int finish=0x7f06001f;
+        public static final int finish=0x7f060024;
         public static final int guide1=0x7f060010;
         public static final int guide1_content=0x7f060011;
         public static final int guide1_item1=0x7f060012;
@@ -104,15 +107,20 @@ public final class R {
         public static final int guide2_content=0x7f060018;
         public static final int guide2_item1=0x7f060019;
         public static final int guide2_item2=0x7f06001a;
-        public static final int guide4=0x7f06001c;
-        public static final int guide4_content=0x7f06001d;
-        public static final int guide4_item1=0x7f06001e;
+        public static final int guide3=0x7f06001c;
+        public static final int guide3_content=0x7f06001d;
+        public static final int guide3_item1=0x7f06001e;
+        public static final int guide3_item2=0x7f06001f;
+        public static final int guide4=0x7f060021;
+        public static final int guide4_content=0x7f060022;
+        public static final int guide4_item1=0x7f060023;
         public static final int hello_world=0x7f060003;
         public static final int inputPassword=0x7f06000f;
         public static final int login=0x7f06000e;
         public static final int main=0x7f060007;
         public static final int next=0x7f060016;
         public static final int numberSecurity=0x7f060006;
+        public static final int pervious=0x7f060020;
         public static final int perviout=0x7f06001b;
         public static final int protecte=0x7f060008;
         public static final int protectedNo=0x7f06000d;
