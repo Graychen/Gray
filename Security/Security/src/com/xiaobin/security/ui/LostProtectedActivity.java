@@ -10,7 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.security.R;
@@ -22,6 +26,11 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 	private Dialog dialog;
 	private EditText password;
 	private EditText confirmPassword;
+	
+	private TextView tv_protectedNumber;
+	private TextView tv_protectedGuide;
+	private CheckBox cb_isProtected;
+	
 	@Override
 	 protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -133,11 +142,43 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 				String str = sp.getString("password", "");
 				if(MD5Encoder.encode(pwd).equals(str))
 				{
-					if(!isSetupGuide())
+					if(isSetupGuide())
 					{
-						finish();
-						Intent intent = new Intent(this, SetupGuide1Activity.class);
-						startActivity(intent);
+						setContentView(R.layout.lost_protected);
+						tv_protectedNumber=(TextView)findViewById(R.id.tv_lost_protected_number);
+						tv_protectedGuide=(TextView)findViewById(R.id.tv_lost_protected_guide);
+						cb_isProtected=(CheckBox)findViewById(R.id.cb_lost_protected_isProtected);
+						tv_protectedNumber.setText("手机安全号码为："+sp.getString("number", ""));
+						tv_protectedGuide.setOnClickListener(this);
+						boolean isProtecting=sp.getBoolean("isProtected", false);
+						
+						if(isProtecting)
+						{
+							cb_isProtected.setText("已经开启保护");
+							cb_isProtected.setChecked(true);
+					
+						}
+						cb_isProtected.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+							@Override
+							public void onCheckedChanged(CompoundButton buttonView,
+									boolean isChecked) {
+								if(isChecked){
+									cb_isProtected.setText("已经开启保护");
+									Editor editor=sp.edit();
+									editor.putBoolean("isProtected", true);
+									editor.commit();
+								}
+								else{
+									cb_isProtected.setText("没有开启保护");
+									Editor editor=sp.edit();
+									editor.putBoolean("isProtected", false);
+									editor.commit();
+								}
+							}
+							
+						});
+
 					}
 					dialog.dismiss();
 				}
@@ -152,7 +193,12 @@ public class LostProtectedActivity extends Activity implements OnClickListener{
 			dialog.dismiss();
 			finish();
 			break;
-			
+		
+		case R.id.tv_lost_protected_guide:
+			finish();
+			Intent setupGuideIntent = new Intent(this, SetupGuide1Activity.class);
+			startActivity(setupGuideIntent);
+			break;
 		default:
 			break;
 		}

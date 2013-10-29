@@ -75,6 +75,13 @@
 				<action android:name="android.intent.action.NEW_OUTGOING_CALL"/>                
             </intent-filter>
         </receiver>
+        <receiver 
+            android:name="com.xiaobin.security.receiver.BootCompleteReceiver"
+            >
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/><!-- 这个是开机完成后的广播 -->
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

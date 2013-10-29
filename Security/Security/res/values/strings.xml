@@ -45,4 +45,8 @@
 	<string name="guide4_content">您的手机设置已经完成</string>
 	<string name="guide4_item1">手机没有开启保护</string>
 	<string name="finish">完成</string>
+	
+	<string name="lostProtectedNumber">lostProtectedNumber</string>
+	<string name="isProtected">isProtected</string>
+	<string name="rePlayGuide">rePlayGuide</string>
 </resources>

@@ -49,6 +49,7 @@ public class SetupGuide2Activity extends Activity implements OnClickListener{
 		{
 			cb_bind.setText("没有绑定");
 			cb_bind.setChecked(false);
+			resetSimInfo();
 		}
 		
 		cb_bind.setOnCheckedChangeListener(new OnCheckedChangeListener(){
@@ -62,6 +63,7 @@ public class SetupGuide2Activity extends Activity implements OnClickListener{
 					setSimInfo();
 				}else{
 					cb_bind.setText("没有绑定");
+					resetSimInfo();
 				}
 			}
 
@@ -70,6 +72,13 @@ public class SetupGuide2Activity extends Activity implements OnClickListener{
 		});
 	}
 	
+	private void resetSimInfo() {
+		// TODO Auto-generated method stub
+		Editor editor = sp.edit();
+		editor.putString("simSerial", null);
+		editor.commit();
+	}
+
 	private void setSimInfo() {
 		// TODO Auto-generated method stub
 		TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
