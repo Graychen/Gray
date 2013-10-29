@@ -7,6 +7,8 @@
 
 package com.xiaobin.security;
 
+import android.view.View;
+
 public final class R {
     public static final class anim {
         public static final int alpha_in=0x7f040000;
@@ -73,6 +75,10 @@ public final class R {
         public static final int ll_splash_main=0x7f0a000f;
         public static final int tv_main_name=0x7f0a0009;
         public static final int tv_splash_version=0x7f0a0010;
+		public static int lv_select_contact;
+		public static int tv_contact_name;
+		public static int tv_contact_number;
+		public static int bt_guide_select;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -85,6 +91,8 @@ public final class R {
         public static final int setup_guide4=0x7f030007;
         public static final int splash=0x7f030008;
         public static final int steup_guide1=0x7f030009;
+		public static View select_contact;
+		public static int contact_item;
     }
     public static final class menu {
         public static final int main=0x7f090000;
