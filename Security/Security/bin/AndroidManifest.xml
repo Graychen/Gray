@@ -82,6 +82,25 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/><!-- 这个是开机完成后的广播 -->
             </intent-filter>
         </receiver>
+        
+        <receiver 
+            android:name="com.xiaobin.security.receiver.SmsReceiver"
+            >
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+            
+        </receiver>
+        
+        <receiver 
+            android:name="com.xiaobin.security.receiver.MyAdminReceiver">
+        	<meta-data android:name="android.app.device_admin"
+        	    android:resource="@xml/myadmin" 
+        	    />    
+        	    <intent-filter >
+        	        <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+        	    </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

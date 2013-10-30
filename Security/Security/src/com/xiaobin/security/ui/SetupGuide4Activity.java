@@ -2,6 +2,8 @@ package com.xiaobin.security.ui;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.example.security.R;
+import com.xiaobin.security.receiver.MyAdminReceiver;
 
 public class SetupGuide4Activity extends Activity implements OnClickListener{
 	
@@ -54,6 +57,7 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 					cb_protected.setText("已经开启保护");
 					Editor editor=sp.edit();
 					editor.putBoolean("isProtected",true);
+					editor.commit();
 				}else{
 					cb_protected.setText("没有开启保护");
 					Editor editor = sp.edit();
@@ -73,9 +77,7 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 		case R.id.bt_guide_finish:
 			if(cb_protected.isChecked())
 			{
-				Editor editor = sp.edit();
-				editor.putBoolean("setupGuide", true);
-				editor.commit();
+				finishSetupGuide();
 				finish();
 			}
 			else
@@ -89,9 +91,7 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						Editor editor = sp.edit();
-						editor.putBoolean("setupGuide", true);
-						editor.commit();
+						finishSetupGuide();
 						finish();
 					}
 				});
@@ -100,9 +100,7 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						Editor editor = sp.edit();
-						editor.putBoolean("setupGuide", true);
-						editor.commit();
+						finishSetupGuide();
 					}
 				});
 				builder.create().show();
@@ -120,4 +118,22 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 			break;
 	}
 		}
+	
+	private void finishSetupGuide()
+	{
+		Editor editor = sp.edit();
+		editor.putBoolean("setupGuide", true);//记录是否已经进行过设置向导了
+		editor.commit();
+		
+		DevicePolicyManager devicePolicyManager = (DevicePolicyManager)
+		getSystemService(Context.DEVICE_POLICY_SERVICE);
+		ComponentName componentName = new ComponentName(this, MyAdminReceiver.class);
+		if(!devicePolicyManager.isAdminActive(componentName))
+		{
+			 Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+			 intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, componentName);
+			 startActivity(intent);
+		}
+	}
+	
 }
