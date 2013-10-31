@@ -74,39 +74,39 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch(v.getId()){
-		case R.id.bt_guide_finish:
-			if(cb_protected.isChecked())
-			{
-				finishSetupGuide();
-				finish();
-			}
-			else
-			{
-				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setTitle("提醒");
-				builder.setMessage("强烈建议您开启保护，是否完成设置");
-				builder.setCancelable(false);
-				builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						finishSetupGuide();
-						finish();
-					}
-				});
-				builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						finishSetupGuide();
-					}
-				});
-				builder.create().show();
-			}
-			break;
-			
+		 case R.id.bt_guide_finish : 
+             if(cb_protected.isChecked())
+             {
+                     finishSetupGuide();
+                     finish();
+             }
+             else
+             {
+                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                     builder.setTitle("提醒");
+                     builder.setMessage("强烈建议您开启保护, 是否完成设置");
+                     builder.setCancelable(false);
+                     builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                     {
+                             @Override
+                             public void onClick(DialogInterface dialog, int which)
+                             {
+                                     finishSetupGuide();
+                                     finish();
+                             }
+                     });
+                     builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener()
+                     {
+                             @Override
+                             public void onClick(DialogInterface dialog, int which)
+                             {
+                                     finishSetupGuide();
+                             }
+                     });
+                     builder.create().show();
+             }
+             break;
+             
 		case R.id.bt_guide_pervious:
 		    Intent intent = new Intent(this, SetupGuide3Activity.class);
 		    finish();
@@ -119,21 +119,23 @@ public class SetupGuide4Activity extends Activity implements OnClickListener{
 	}
 		}
 	
-	private void finishSetupGuide()
-	{
-		Editor editor = sp.edit();
-		editor.putBoolean("setupGuide", true);//记录是否已经进行过设置向导了
-		editor.commit();
-		
-		DevicePolicyManager devicePolicyManager = (DevicePolicyManager)
-		getSystemService(Context.DEVICE_POLICY_SERVICE);
-		ComponentName componentName = new ComponentName(this, MyAdminReceiver.class);
-		if(!devicePolicyManager.isAdminActive(componentName))
-		{
-			 Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-			 intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, componentName);
-			 startActivity(intent);
-		}
-	}
+	  private void finishSetupGuide()
+      {
+              Editor editor = sp.edit();
+              editor.putBoolean("setupGuide", true);//记录是否已经进行过设置向导了
+              editor.commit();
+              
+              //拿到一个设备管理器
+              DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+              //new一个新的组件出来，用来启动注册管理器的界面
+              ComponentName componentName = new ComponentName(this, MyAdminReceiver.class);
+              //判断是否已经注册，没有就进行注册
+              if(!devicePolicyManager.isAdminActive(componentName))
+              {
+                      Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                      intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
+                      startActivity(intent);
+              }
+      }
 	
 }
