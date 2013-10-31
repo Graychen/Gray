@@ -49,4 +49,7 @@
 	<string name="lostProtectedNumber">lostProtectedNumber</string>
 	<string name="isProtected">isProtected</string>
 	<string name="rePlayGuide">rePlayGuide</string>
+	
+	<string name="query">query</string>
+	<string name="bt_query">bt_query</string>
 </resources>
