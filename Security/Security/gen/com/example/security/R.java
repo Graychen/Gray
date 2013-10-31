@@ -11,8 +11,10 @@ public final class R {
     public static final class anim {
         public static final int alpha_in=0x7f040000;
         public static final int alpha_out=0x7f040001;
-        public static final int translate_in=0x7f040002;
-        public static final int translate_out=0x7f040003;
+        public static final int cycle_7=0x7f040002;
+        public static final int shake=0x7f040003;
+        public static final int translate_in=0x7f040004;
+        public static final int translate_out=0x7f040005;
     }
     public static final class attr {
     }
@@ -152,6 +154,7 @@ public final class R {
         public static final int query=0x7f080028;
         public static final int rePlayGuide=0x7f080027;
         public static final int serverUrl=0x7f080000;
+        public static final int serverdb=0x7f08002a;
         public static final int setPassword=0x7f080009;
         public static final int setPasswordDescription=0x7f08000a;
         public static final int setupGuide=0x7f080005;

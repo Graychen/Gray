@@ -52,4 +52,5 @@
 	
 	<string name="query">query</string>
 	<string name="bt_query">bt_query</string>
+	<string name="serverdb">serverdb</string>
 </resources>
